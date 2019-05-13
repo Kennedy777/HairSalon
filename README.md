@@ -8,11 +8,11 @@
 
 This is an MVC web application for a fictioanl hair salon. The "owner" will be able to add a list of the stylists, and for each stylist, add clients who see that stylist. The stylists work independently, so each client only belongs to a single stylist.
 
-User Stories
-As a salon employee, I need to be able to see a list of all our stylists.
-As an employee, I need to be able to select a stylist, see their details, and see a list of all clients that belong to that stylist.
-As an employee, I need to add new stylists to our system when they are hired.
-As an employee, I need to be able to add new clients to a specific stylist. I should not be able to add a client if no stylists have been added.
+The user, a hypothetical owner/administrator of a salon, will be able to:
+* select a stylist, see their details, and see a list of all clients that belong to that stylist.
+* add new stylists to the system when hired.
+* add new clients to a specific stylist. 
+* In this salon, a client cannot be added without a stylist, and a client can't belong to more than one stylist, creating a "one to many" relationship. 
 
 ## Known Bugs
 * None currently known. 
