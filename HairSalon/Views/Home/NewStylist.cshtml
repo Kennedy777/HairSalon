@@ -1,0 +1,18 @@
+@{
+  Layout = "_Layout";
+}
+
+<div class="container">
+  <h3>Add a Stylist</h3>
+  <ul>
+		<form action="/stylist/new" method="post">
+	  	<div class="form-group">
+	      <label for="name">Name</label>
+	      <input id="name" name="name" type="text" class="form-control" autofocus>
+	    </div>
+	  	<button class="btn btn-success" type="submit" name="submit-check">Confirm </button>
+	  </form>
+    <br>
+    <a href="/"><button class="btn btn-warning" type="button" name="back-stylist">Cancel</button></a>
+  </ul>
+</div>
