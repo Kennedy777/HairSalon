@@ -60,9 +60,8 @@ namespace HairSalon.Controllers
         {
             string name = Request.Form["name"];
             string phone = Request.Form["phone"];
-            string address = Request.Form["address"];
-            string notes = Request.Form["notes"];
-            Client newClient = new Client(name, phone, address, notes);
+            string email = Request.Form["email"];
+            Client newClient = new Client(name, phone, email);
             newClient.Save(stylistId);
             return Redirect("/stylist/" + stylistId);
         }
