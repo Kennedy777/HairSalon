@@ -32,12 +32,6 @@ namespace HairSalon.Models
       SetEmail(email);
     }
 
-    public static void ClearAll()
-    {
-      Query clearClients = new Query("DELETE FROM clients");
-      clearClients.Execute();
-    }
-
     public void Save(int stylistId)
     {
     Query addClient = new Query("INSERT INTO clients VALUES(NULL, @StylistId, @Name, @Phone, @Email)"); 
@@ -49,6 +43,50 @@ namespace HairSalon.Models
     SetId((int)addClient.GetCommand().LastInsertedId);
     }
 
+    public static Client Find(int id)
+    {
+      Query findClinent = new Query("SELECT * FROM clients WHERE client_id = @Id");
+      findClient.AddParameter("@Id", id.ToString());
+      var rdr = findClient.Read();
+      int stylistId = 0;
+      string name = "";
+      string phone = "";
+      string email = "";
+
+        while (rdr.Read())
+        {
+          stylistId = rdr.GetInt32(1);
+          name = rdr.GetString(2); 
+          phone = rdr.GetPhone(3);
+          email = rdr.GetEmail(4);
+        }
+
+        Client found = new Client(name, phone, email);
+        found.SetStylistId(stylistId);
+        found.SetId(id);
+        return found;
+     }
+
+    public static List<Client> GetAll()
+    {
+      List<Client> allClients = new List<Client> {};
+      Query getAllClients = new Query("SELECT * FROM clients");
+      var rdr = getAllClients.Read();
+      
+      while (rdr.Read())
+      {
+        int stylistId = rdr.GetString32(1);
+        string name = rdr.GetName(2);
+        string phone = rdr.GetPhone(3);
+        string email = rdr.GetEmail(4);
+        Client client = new Client(name, phone, email);
+        client.SetId(rdr.GetInt32(0));
+
+        allClients.Add(client);
+      }
+      return allClients;
+     }
+
     public void Update()
     {
       Query updateClient = new Query ("UPDATE clients SET name = @Name, phone = @Phone, email = @Email");
@@ -59,5 +97,11 @@ namespace HairSalon.Models
       updateClient.Execute();
     }
 
-
+   public static void ClearAll()
+    {
+      Query clearClients = new Query("DELETE FROM clients");
+      clearClients.Execute();
+    }
+    
+  }
 }
