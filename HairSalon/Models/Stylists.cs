@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace HairSalon.Models
 {
-    public class Stylist
+    public class Stylists
     {
         private int _id;
         public void SetId(int id) {_id = id;}
