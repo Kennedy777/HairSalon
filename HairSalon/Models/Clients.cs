@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 
 namespace HairSalon.Models
-{
+
 	public class Clients
 	{
     private int _id;
