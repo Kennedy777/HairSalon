@@ -23,7 +23,7 @@ namespace HairSalon.Models
 
     private string _email;
     public void SetEmail(string email) {_email = email;}
-    public s
+    public string GetEmail() {return _email;}
 
     public Client(string name, string phone, string email)
     {
@@ -45,13 +45,19 @@ namespace HairSalon.Models
     addClinet.AddParameter("@Name", GetName());
     addClinent.AddParameter("@Phone", GetPhone());
     addClient.AddParameter("@Email", GetEmail());
-    
+    addClient.Execute();
+    SetId((int)addClient.GetCommand().LastInsertedId);
     }
 
-  	public static void ClearAll()
-  	{
-	  Query clearClients = new Clients("DELETE FROM clients");
-      clearClients.Execute();
-  	}
+    public void Update()
+    {
+      Query updateClient = new Query ("UPDATE clients SET name = @Name, phone = @Phone, email = @Email");
+      updateClient.AddParameter("@ClientId", GetId().ToString());
+      updateClient.AddParameter("@Name", GetName());
+      updateClient.AddParameter("@Phone", GetPhone());
+      updateClient.AddParameter("@Email", GetEmail());
+      updateClient.Execute();
+    }
+
 
 }
