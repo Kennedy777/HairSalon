@@ -1,4 +1,4 @@
-# Hair Salon 
+# EpiCutUs Salon Proto-CRM
 
 #### Epicodus Week 3 & 4 C# Independent Projecct 
 
