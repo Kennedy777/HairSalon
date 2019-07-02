@@ -2,7 +2,7 @@
 
 #### Epicodus Week 3 C# Independent Projecct 
 
-#### By **Marguerite Kennedy, May 10, 2019**
+#### by Marguerite Kennedy
 
 ## Description
 

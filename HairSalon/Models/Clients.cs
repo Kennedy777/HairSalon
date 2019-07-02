@@ -102,6 +102,5 @@ namespace HairSalon.Models
       Query clearClients = new Query("DELETE FROM clients");
       clearClients.Execute();
     }
-    
   }
 }

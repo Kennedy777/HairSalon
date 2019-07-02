@@ -39,7 +39,6 @@ namespace HairSalon.Controllers
             return View(Client.Find(id));
         }
 
-
         [HttpGet("/Client/{id}")]
         public ActionResult ViewClient(int id)
         {
